@@ -19,26 +19,30 @@ function StockList(props) {
           </div>
         </div>
         <div className="w-25 padding bg-gray flex ac">
-          <div className="w-60 ">
-            <p className="w-100 font-col-gray ">
-              <i className="fas fa-layer-group"></i> Quantity
-            </p>
-            <p className="w-100 font-col-gray ">
-              <i className="fas fa-at"></i> Average Cost
-            </p>
-            <p className="w-100 font-col-gray ">
-              <i className="fas fa-money-bill-wave"></i> Invested Amount
-            </p>
-          </div>
-          <div className="w-40">
-            <p className="w-100">{stock.quantity}</p>
-            <p className="w-100">${stock.avgCost}</p>
-            <p className="w-100">
-              $
-              {new Intl.NumberFormat("en-IN", {
-                maximumSignificantDigits: 3,
-              }).format(stock.investedAmt)}
-            </p>
+          <div className="flex">
+            <div className="w-100 flex">
+              <p className="w-78 font-col-gray ">
+                <i className="fas fa-layer-group"></i> Quantity
+              </p>
+              <p className="w-20">{stock.quantity}</p>
+            </div>
+            <div className="w-100 flex">
+              <p className="w-78 font-col-gray ">
+                <i className="fas fa-at"></i> Average Cost
+              </p>
+              <p className="w-20">${stock.avgCost}</p>
+            </div>
+            <div className="w-100 flex ">
+              <p className="w-78 font-col-gray ">
+                <i className="fas fa-money-bill-wave"></i> Invested Amount
+              </p>
+              <p className="w-20 ">
+                $
+                {new Intl.NumberFormat("en-IN", {
+                  maximumSignificantDigits: 3,
+                }).format(stock.investedAmt)}
+              </p>
+            </div>
           </div>
         </div>
         <div className="w-20 padding bg-gray flex ac">
@@ -52,7 +56,7 @@ function StockList(props) {
             </p>
           </div>
           <div className="w-100 flex sb ">
-            <p className="font-col-gray">% of portfolio value</p>
+            <p className="font-col-gray">% of portfolio</p>
             <p>{stock.percentageInvested}%</p>
           </div>
           <div className="w-100 bar-outer">

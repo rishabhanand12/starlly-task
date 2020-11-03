@@ -15,7 +15,7 @@ export default function Form(props) {
   async function handleSubmit(event) {
     event.preventDefault();
     try {
-      let url = "http://localhost:5000/api/stocks";
+      let url = "/api/stocks";
       let req = await fetch(url, {
         method: "POST",
         headers: {

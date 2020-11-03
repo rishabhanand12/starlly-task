@@ -14,9 +14,19 @@
 .border {
   border: 2px solid black;
 }
+
 .flex {
   display: flex;
   flex-wrap: wrap;
+}
+
+.dashboard {
+  width: 100%;
+  // position: absolute;
+  // top: 50%;
+  // left: 50%;
+  // transform: translate((-50%, -50%));
+  background-color: #e2e2e2;
 }
 
 .scroll-y {
@@ -77,6 +87,11 @@
   width: 60%;
 }
 
+
+.w-78 {
+  width: 78%;
+}
+
 .w-80 {
   width: 80%;
 }
@@ -130,7 +145,7 @@
 .bar-inner {
   height: 100%;
   background-color: rgba(101, 221, 107, 0.692);
-  animation: increase 0.8s ease-out;
+  animation: increase 1s ease-out;
 }
 
 .fa-caret-up {
@@ -193,16 +208,6 @@
     stroke-width: 0;
     stroke-opacity: 0;
   }
-}
-
-.dashboard {
-  width: 100%;
-  max-height: 80vh;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate((-50%, -50%));
-  background-color: #e2e2e2;
 }
 
 .donut {

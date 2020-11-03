@@ -6,9 +6,16 @@ let PORT = process.env.PORT || 5000;
 let app = express();
 require("dotenv").config();
 
+app.use(
+  helmet({
+    contentSecurityPolicy: false,
+  })
+);
+
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded());
+app.use(express.static("client/build"));
 
 mongoose.set("useFindAndModify", false);
 mongoose.set("useNewUrlParser", true);
@@ -19,6 +26,15 @@ mongoose.connect(process.env.MONGO_URI, (err) => {
 });
 
 app.use("/api/stocks", stockRouter);
+
+if (
+  process.env.NODE_ENV === "production" ||
+  process.env.NODE_ENV === "staging"
+) {
+  app.get("*", (_req, res) => {
+    res.sendFile(path.join(__dirname + "/client/build/index.html"));
+  });
+}
 
 //error handler
 app.use(function (_req, _res, next) {

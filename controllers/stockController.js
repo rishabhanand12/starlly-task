@@ -29,7 +29,7 @@ exports.addStock = async (req, res, next) => {
 };
 
 function calcProjection(projection) {
-  var total = projection.reduce((a, e) => a.count + e.count);
+  var total = projection.reduce((a, e) => a + e.count,0);
   let obj = {};
   projection.forEach((elem) => {
     obj[elem.type] = elem.count / total;
